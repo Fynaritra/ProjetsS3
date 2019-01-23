@@ -1,0 +1,17 @@
+#offer{
+	margin-left: 250px; 
+	background-color: cyan;
+	width: 25%;
+	height: 100%;
+	padding: 20px 20px;
+}
+#ajout{
+	margin-left: 2%; 
+	background-color: #DDCC00;
+	width: 30%;
+	height: 100%;
+	padding: 20px 20px;
+}
+#situation{
+	float: right;
+}

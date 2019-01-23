@@ -1,0 +1,18 @@
+if(sumAnnules==total){
+	String[] attribut = {"idfacture"};
+	String[] search = {" like '"+ fact.getIdfacture() + "'"};
+	String idpv = fact.getIdprelevement();
+	Prelevement prelev = getPvById(db, idpv);
+	String idannule = "An"+getSeqValue(db, "idAnnules"); 
+	String cpt = prelev.getNumcompteur();
+	double index = prelev.getIndexpreleve();
+	Date datePv = prelev.getDateprelevmt();
+	PvAnnules toAnnule = new PvAnnules(idannule, idpv, cpt, index, datePv);
+	String[] att = {"idPrelevement "};
+	String[] sea = {"like '"+idannule + "'"};
+	
+	UpdateNumber(db, "Prelevement", "etatPv", "0", att, sea);
+	insert(db, "PvAnnules", toAnnule);
+	
+	UpdateNumber(db, "Facture", "etatFacture", "-1", attribut, search);
+}
